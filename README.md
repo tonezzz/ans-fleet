@@ -1,5 +1,7 @@
 # ans-fleet
 
+[![Ansible Lint](https://github.com/tonezzz/ans-fleet/actions/workflows/ansible-lint.yml/badge.svg)](https://github.com/tonezzz/ans-fleet/actions/workflows/ansible-lint.yml)
+
 Ansible playbooks to set up Ubuntu desktops, Ubuntu servers, and Windows workstations.
 
 ## Supported profiles
@@ -16,7 +18,7 @@ Ansible playbooks to set up Ubuntu desktops, Ubuntu servers, and Windows worksta
 sudo apt update && sudo apt install -y ansible git
 ansible-galaxy collection install community.general chocolatey.chocolatey
 
-git clone https://github.com/YOUR_USERNAME/ans-fleet.git
+git clone https://github.com/tonezzz/ans-fleet.git
 cd ans-fleet
 
 # For local desktop setup
@@ -50,6 +52,10 @@ Install collections:
 ```bash
 ansible-galaxy collection install -r requirements.yml
 ```
+
+## Continuous integration
+
+Every push and pull request to `main` is checked with `ansible-lint` via GitHub Actions.
 
 ## Notes
 

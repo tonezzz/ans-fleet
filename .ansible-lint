@@ -1,0 +1,11 @@
+exclude_paths:
+  - .github/
+  - .git/
+
+warn_list:
+  - yaml
+  - experimental
+
+skip_list:
+  - name[casing]
+  - package-latest
