@@ -1,0 +1,30 @@
+---
+- name: Install desktop packages
+  ansible.builtin.apt:
+    name: "{{ desktop_packages }}"
+    state: present
+
+- name: Install snaps
+  community.general.snap:
+    name: "{{ item.name }}"
+    classic: "{{ item.classic | default(false) }}"
+  loop: "{{ desktop_snaps }}"
+
+- name: Add Flathub remote
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+  ignore_errors: true
+
+- name: Install flatpaks
+  community.general.flatpak:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ desktop_flatpaks }}"
+  ignore_errors: true
+
+- name: Set dark mode
+  ansible.builtin.command: gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+  changed_when: true
+  ignore_errors: true

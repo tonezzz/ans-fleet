@@ -1,0 +1,12 @@
+---
+# Common packages installed on every Ubuntu target
+common_ubuntu_packages:
+  - vim
+  - git
+  - curl
+  - wget
+  - htop
+  - unzip
+  - ca-certificates
+  - apt-transport-https
+  - software-properties-common

@@ -1,0 +1,17 @@
+---
+# Desktop-specific packages
+desktop_packages:
+  - firefox
+  - thunderbird
+  - vlc
+  - keepassxc
+  - gnome-tweaks
+  - fonts-noto-color-emoji
+
+desktop_snaps:
+  - name: code
+    classic: true
+  - name: spotify
+
+desktop_flatpaks:
+  - com.discordapp.Discord

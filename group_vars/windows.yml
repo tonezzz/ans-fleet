@@ -1,0 +1,8 @@
+---
+# Windows-specific packages via Chocolatey
+windows_packages:
+  - firefox
+  - vscode
+  - 7zip
+  - git
+  - notepadplusplus

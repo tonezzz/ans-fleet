@@ -1,0 +1,9 @@
+*.vault
+*.key
+*.pem
+*.log
+.vault_pass
+.vagrant/
+*.retry
+__pycache__/
+*.pyc

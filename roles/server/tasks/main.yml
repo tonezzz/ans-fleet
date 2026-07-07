@@ -1,0 +1,24 @@
+---
+- name: Install server packages
+  ansible.builtin.apt:
+    name: "{{ server_packages }}"
+    state: present
+
+- name: Enable and start server services
+  ansible.builtin.service:
+    name: "{{ item }}"
+    state: started
+    enabled: true
+  loop: "{{ server_services }}"
+
+- name: Enable UFW
+  community.general.ufw:
+    state: enabled
+    default: deny
+  ignore_errors: true
+
+- name: Allow SSH through UFW
+  community.general.ufw:
+    rule: allow
+    port: "22"
+  ignore_errors: true

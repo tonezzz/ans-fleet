@@ -1,0 +1,6 @@
+---
+- name: Set up Windows workstation
+  hosts: windows
+  gather_facts: true
+  roles:
+    - windows

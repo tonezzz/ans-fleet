@@ -1,0 +1,12 @@
+---
+# Server-specific packages
+server_packages:
+  - ufw
+  - fail2ban
+  - nginx
+  - certbot
+  - python3-certbot-nginx
+
+server_services:
+  - nginx
+  - fail2ban

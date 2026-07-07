@@ -1,0 +1,8 @@
+---
+- name: Set up Ubuntu server
+  hosts: ubuntu_servers
+  become: true
+  gather_facts: true
+  roles:
+    - common
+    - server
