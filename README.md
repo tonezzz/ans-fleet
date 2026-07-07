@@ -60,6 +60,15 @@ Every push and pull request to `main` is checked with `ansible-lint` via GitHub 
 ## Notes
 
 - Keep profile-specific variables in `group_vars/`.
-- The desktop playbook includes `common`, `desktop`, and `dev_tools` roles.
+- The desktop playbook includes `common`, `desktop`, `dev_tools`, `chrome`, `windsurf`, `knowledge_base`, and `git_credentials` roles.
 - Add common tasks to the `common` role.
-- Extend `desktop`, `server`, `windows`, or `dev_tools` roles for each profile.
+- Extend `desktop`, `server`, `windows`, `dev_tools`, `chrome`, `windsurf`, `knowledge_base`, or `git_credentials` roles for each profile.
+
+## Credentials automation
+
+To avoid typing your GitHub token on every push, use one of these methods:
+
+- **SSH keys**: generate a key pair, add the public key to GitHub, and use SSH remotes.
+- **Git credential helper**: `git config --global credential.helper 'cache --timeout=3600'` caches the token for one hour.
+- **Ansible Vault**: store the token in `group_vars/all/secrets.yml` and have Ansible write it to `~/.git-credentials` via the `store` helper.
+- **libsecret / gnome-keyring**: use `git config --global credential.helper /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret` to store the token in your keyring.

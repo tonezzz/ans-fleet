@@ -1,0 +1,20 @@
+---
+- name: Add Windsurf GPG key
+  ansible.builtin.apt_key:
+    url: https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/windsurf.gpg
+    keyring: /usr/share/keyrings/windsurf-stable-archive-keyring.gpg
+  when: ansible_os_family == "Debian"
+
+- name: Add Windsurf repository
+  ansible.builtin.apt_repository:
+    repo: "deb [signed-by=/usr/share/keyrings/windsurf-stable-archive-keyring.gpg arch=amd64] https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/apt stable main"
+    filename: windsurf
+    state: present
+  when: ansible_os_family == "Debian"
+
+- name: Install Windsurf
+  ansible.builtin.apt:
+    name: "{{ windsurf_package }}"
+    state: present
+    update_cache: true
+  when: ansible_os_family == "Debian"

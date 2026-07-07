@@ -1,0 +1,6 @@
+---
+- name: Configure Git credential helper
+  ansible.builtin.git_config:
+    name: credential.helper
+    value: "{{ git_credentials_helper }}"
+    scope: global

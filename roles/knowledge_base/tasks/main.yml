@@ -1,0 +1,13 @@
+---
+- name: Ensure knowledge base parent directory exists
+  ansible.builtin.file:
+    path: "{{ knowledge_base_path | dirname }}"
+    state: directory
+    mode: "0755"
+
+- name: Clone devin-kb repository
+  ansible.builtin.git:
+    repo: "{{ knowledge_base_repo }}"
+    dest: "{{ knowledge_base_path }}"
+    version: main
+    update: true
