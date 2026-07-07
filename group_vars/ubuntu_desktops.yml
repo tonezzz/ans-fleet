@@ -9,9 +9,20 @@ desktop_packages:
   - fonts-noto-color-emoji
 
 desktop_snaps:
-  - name: code
-    classic: true
   - name: spotify
 
 desktop_flatpaks:
   - com.discordapp.Discord
+
+# Development tools
+dev_tools_packages:
+  - build-essential
+  - python3-pip
+  - python3-venv
+  - nodejs
+  - npm
+  - git
+
+dev_tools_snaps:
+  - name: code
+    classic: true

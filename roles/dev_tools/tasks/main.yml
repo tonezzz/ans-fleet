@@ -1,0 +1,11 @@
+---
+- name: Install development tools via apt
+  ansible.builtin.apt:
+    name: "{{ dev_tools_packages }}"
+    state: present
+
+- name: Install development tools via snap
+  community.general.snap:
+    name: "{{ item.name }}"
+    classic: "{{ item.classic | default(false) }}"
+  loop: "{{ dev_tools_snaps }}"

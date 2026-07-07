@@ -60,5 +60,6 @@ Every push and pull request to `main` is checked with `ansible-lint` via GitHub 
 ## Notes
 
 - Keep profile-specific variables in `group_vars/`.
+- The desktop playbook includes `common`, `desktop`, and `dev_tools` roles.
 - Add common tasks to the `common` role.
-- Extend `desktop`, `server`, or `windows` roles for each profile.
+- Extend `desktop`, `server`, `windows`, or `dev_tools` roles for each profile.
